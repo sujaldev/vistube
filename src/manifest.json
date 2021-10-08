@@ -1,0 +1,16 @@
+{
+  "name": "VisTube",
+  "description": "Allow you to focus on the video you are watching and not the other stuff YouTube wants you to focus on.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://youtube.com/*"
+      ],
+      "js": [
+        "main.js"
+      ]
+    }
+  ]
+}
