@@ -1,29 +1,18 @@
-let visibility_to_set = "hidden"
-let video_elem = document.getElementsByTagName("video")[0];
-video_elem.id = "video";
-let all_other_elems = document.querySelectorAll("body > *:not(#video)");
-
-
-function set_visibility(visibility) {
-    for (let elem of all_other_elems) {
-        elem.style.visibility = visibility;
-    }
-    video_elem.style.visibility = "visible";
-}
-
-
-function toggle_visibility(visibility) {
-    if (visibility === "hidden") {
-        return "visible";
-    } else {
-        return "hidden"
-    }
-}
+let title_element = document.getElementsByTagName("title")[0];
+let title_text = title_element.innerHTML;
+let body = document.getElementsByTagName("body")[0];
+let video = document.getElementsByTagName("video")[0];
+video.style.visibility = "visible";
 
 
 document.addEventListener("keydown", function (event) {
     if (event.key.toLowerCase() === "h") {
-        set_visibility(visibility_to_set);
-        visibility_to_set = toggle_visibility(visibility_to_set);
+        if (body.style.visibility === "visible") {
+            body.style.visibility = "hidden";
+            title_element.innerHTML = "Focus Mode: ON";
+        } else {
+            body.style.visibility = "visible";
+            title_element.innerHTML = title_text;
+        }
     }
-})
+});
