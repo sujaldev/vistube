@@ -6,7 +6,7 @@ video.style.visibility = "visible";
 
 
 document.addEventListener("keydown", function (event) {
-    if (event.key.toLowerCase() === "h") {
+    if (event.key.toLowerCase() === "h" && event.target.nodeName.toLowerCase() !== "input") {
         if (body.style.visibility === "visible") {
             body.style.visibility = "hidden";
             title_element.innerHTML = "Focus Mode: ON";
