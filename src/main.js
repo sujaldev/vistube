@@ -16,7 +16,7 @@ let interval = setInterval(wait_for_video_creation, 1000);
 
 function wait_for_video_creation() {
     video = $x("//video");
-    if (video === undefined) {
+    if (video == undefined) {
         return
     }
     clearInterval(interval);
