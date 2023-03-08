@@ -20,5 +20,10 @@
         "main.js"
       ]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vistube@sujal.dev"
+    }
+  }
 }
