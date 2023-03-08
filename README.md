@@ -5,7 +5,7 @@
     <img src="https://github.com/sujaldev/vistube/raw/main/docs/img/firefox-download.png?raw=true">
   </a>
   &nbsp;&nbsp;
-  <a href="https://chrome.google.com/webstore/detail/ngekgjppgmngfacmbojfegjgpoldmanb/">
+  <a href="https://chrome.google.com/webstore/detail/vistube/ngekgjppgmngfacmbojfegjgpoldmanb">
     <img src="https://github.com/sujaldev/vistube/raw/main/docs/img/chrome-download.png?raw=true">
   </a>
 </h1>
