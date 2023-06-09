@@ -24,8 +24,6 @@ function wait_for_video_creation() {
 }
 
 function handle_video_creation() {
-    video = $x("//video");
-    video.style.visibility = "visible";
     document.addEventListener("keydown", handle_keydown)
 }
 
@@ -38,5 +36,6 @@ function handle_keydown(event) {
             body.style.visibility = "visible";
             title_element.innerHTML = title_text;
         }
+        $x("//video").style.visibility = "visible";
     }
 }
