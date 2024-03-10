@@ -1,41 +1,49 @@
-const $x = (xpath, context = document) => {
-    return document.evaluate(
-        xpath, context, null,
-        XPathResult.FIRST_ORDERED_NODE_TYPE, null
-    ).singleNodeValue;
-};
+// ==UserScript==
+// @name        VisTube
+// @namespace   com.github.sujaldev
+// @match       *://www.youtube.com/*
+// @grant       none
+// @version     1.2
+// @author      Sujal Singh
+// @description Allows you to focus on the video you are watching and not the other stuff YouTube wants you to focus on.
+// ==/UserScript==
 
+let body, video;
+let focusTitle = "Focus Mode";
+let originalTitle = document.title;
 
-let title_element = $x("//title");
-let title_text = title_element.innerHTML;
-let body = $x("//body")
-let video;
-
-
-let interval = setInterval(wait_for_video_creation, 1000);
-
-function wait_for_video_creation() {
-    video = $x("//video");
-    if (video == undefined) {
+document.addEventListener("keydown", (e) => {
+    // only work on video pages
+    if (!window.location.pathname.startsWith("/watch")) {
         return
     }
-    clearInterval(interval);
-    handle_video_creation()
-}
 
-function handle_video_creation() {
-    document.addEventListener("keydown", handle_keydown)
-}
+    let isInput = ["input", "textarea"].includes(e.target.tagName.toLowerCase());
+    let isEditable = e.target.getAttribute("contenteditable") === "true";
+    let isIgnored = isInput || isEditable;
 
-function handle_keydown(event) {
-    if (event.key.toLowerCase() === "h" && event.target.nodeName.toLowerCase() !== "input") {
+    let toggleEvent = e.key.toLowerCase() === "h";
+
+    if (!isIgnored && toggleEvent) {
+        body = document.getElementsByTagName("body")[0];
+        video = document.getElementsByTagName("video")[0];
+
         if (body.style.visibility === "visible") {
             body.style.visibility = "hidden";
-            title_element.innerHTML = "Focus Mode: ON";
+
+            if (document.title !== originalTitle) {
+                originalTitle = document.title;
+            }
+            document.title = focusTitle;
         } else {
             body.style.visibility = "visible";
-            title_element.innerHTML = title_text;
+
+            if (document.title !== focusTitle) {
+                originalTitle = document.title;
+            }
+            document.title = originalTitle;
         }
-        $x("//video").style.visibility = "visible";
+
+        video.style.visibility = "visible";
     }
-}
+})
