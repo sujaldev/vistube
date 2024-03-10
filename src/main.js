@@ -6,6 +6,7 @@
 // @version     1.2
 // @author      Sujal Singh
 // @description Allows you to focus on the video you are watching and not the other stuff YouTube wants you to focus on.
+// @icon        https://raw.githubusercontent.com/sujaldev/vistube/main/src/icons/icon.svg
 // ==/UserScript==
 
 let body, video;
