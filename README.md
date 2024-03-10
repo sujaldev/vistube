@@ -19,6 +19,15 @@ Removes everything from a YouTube video page except for the video you are watchi
 Press the `h` key to toggle between modes while watching a youtube video. On Firefox, you might have to manually give it
 permissions.
 
+## Alternative Installation
+
+You can also install this as an userscript in [violentmonkey](https://violentmonkey.github.io/) by using the following
+URL:
+
+```
+https://raw.githubusercontent.com/sujaldev/vistube/main/src/main.js
+```
+
 ### Demo
 
 ![screenshot](https://user-images.githubusercontent.com/75830554/166881464-6b199905-3c26-4b94-89a9-4967a847fec3.png)
